@@ -37,12 +37,11 @@ module.exports = {
 function getRateFilm(req, res) {
   // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
   var date = req.swagger.params.date.value || "2020-03-23";
-  var name = util.format("Festival %s!", date);
 
   // this sends back a JSON response which is a single string
   res.json([
     {
-      name: name + " by " + faker.name.findName(),
+      name: faker.name.findName(),
       image: faker.image.city(),
       date: date,
     },

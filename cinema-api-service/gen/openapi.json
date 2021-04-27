@@ -8,10 +8,10 @@
     "url" : "http://localhost:10010/api/v1"
   } ],
   "paths" : {
-    "/musicevents" : {
+    "/ratefilm" : {
       "get" : {
-        "description" : "Returns list of musical city musicevents",
-        "operationId" : "musicevents",
+        "description" : "Returns list of ratefilm decription",
+        "operationId" : "ratefilm",
         "parameters" : [ {
           "name" : "date",
           "in" : "query",
@@ -26,7 +26,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/MusicEventResponse"
+                  "$ref" : "#/components/schemas/RateFilmResponse"
                 }
               }
             }
@@ -43,7 +43,7 @@
           }
         }
       },
-      "x-swagger-router-controller" : "music-controller"
+      "x-swagger-router-controller" : "ratefilm-controller"
     },
     "/swagger" : {
       "x-swagger-pipe" : "swagger_raw"
@@ -51,19 +51,16 @@
   },
   "components" : {
     "schemas" : {
-      "MusicEventResponse" : {
+      "RateFilmResponse" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/MusicEvent"
+          "$ref" : "#/components/schemas/Film"
         }
       },
-      "MusicEvent" : {
-        "required" : [ "id" ],
+      "Film" : {
+        "required" : [ "date", "image", "name" ],
         "type" : "object",
         "properties" : {
-          "id" : {
-            "type" : "string"
-          },
           "name" : {
             "type" : "string"
           },
@@ -71,51 +68,6 @@
             "type" : "string"
           },
           "date" : {
-            "type" : "string"
-          },
-          "location" : {
-            "type" : "string"
-          },
-          "band" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Band"
-            }
-          }
-        }
-      },
-      "Band" : {
-        "required" : [ "BandId", "BandName" ],
-        "type" : "object",
-        "properties" : {
-          "BandId" : {
-            "type" : "string"
-          },
-          "BandName" : {
-            "type" : "string"
-          },
-          "image" : {
-            "type" : "string"
-          },
-          "people" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/People"
-            }
-          }
-        }
-      },
-      "People" : {
-        "required" : [ "PersonId", "PersonIdName" ],
-        "type" : "object",
-        "properties" : {
-          "PersonId" : {
-            "type" : "string"
-          },
-          "PersonIdName" : {
-            "type" : "string"
-          },
-          "image" : {
             "type" : "string"
           }
         }
