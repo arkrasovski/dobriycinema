@@ -45,43 +45,6 @@
       },
       "x-swagger-router-controller" : "music-controller"
     },
-    "/weeklyevents" : {
-      "get" : {
-        "description" : "Returns list of musical city weeklyevents",
-        "operationId" : "weeklyevents",
-        "parameters" : [ {
-          "name" : "date",
-          "in" : "query",
-          "description" : "FIltering date",
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Success",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/MusicWeeklyEventResponse"
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "x-swagger-router-controller" : "music-controller"
-    },
     "/swagger" : {
       "x-swagger-pipe" : "swagger_raw"
     }
@@ -92,12 +55,6 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/MusicEvent"
-        }
-      },
-      "MusicWeeklyEventResponse" : {
-        "type" : "array",
-        "items" : {
-          "$ref" : "#/components/schemas/MusicWeeklyEvent"
         }
       },
       "MusicEvent" : {
@@ -124,36 +81,6 @@
             "items" : {
               "$ref" : "#/components/schemas/Band"
             }
-          }
-        }
-      },
-      "MusicWeeklyEvent" : {
-        "required" : [ "id" ],
-        "type" : "object",
-        "properties" : {
-          "beggining" : {
-            "type" : "string"
-          },
-          "end" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "string"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "image" : {
-            "type" : "string"
-          },
-          "date" : {
-            "type" : "string"
-          },
-          "location" : {
-            "type" : "string"
-          },
-          "band" : {
-            "type" : "string"
           }
         }
       },

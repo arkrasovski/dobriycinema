@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /*
  'use strict' is not required but helpful for turning syntactical errors into true errors in the program flow
  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
@@ -10,8 +10,8 @@
 
   It is a good idea to list the modules that your application depends on in the package.json in the project root
  */
-var util = require('util');
-var faker = require('faker');
+var util = require("util");
+var faker = require("faker");
 /*
  Once you 'require' a module you can reference the things that it exports.  These are defined in module.exports.
 
@@ -25,7 +25,7 @@ var faker = require('faker');
   we specify that in the exports of this module that 'hello' maps to the function named 'hello'
  */
 module.exports = {
-  musicevents: getMusicEvents,
+  ratefilm: getRateFilm,
 };
 
 /*
@@ -34,24 +34,17 @@ module.exports = {
   Param 1: a handle to the request object
   Param 2: a handle to the response object
  */
-function getMusicEvents(req, res) {
+function getRateFilm(req, res) {
   // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-  var date = req.swagger.params.date.value || '2020-03-23';
-  var name = util.format('Festival %s!', date);
+  var date = req.swagger.params.date.value || "2020-03-23";
+  var name = util.format("Festival %s!", date);
 
   // this sends back a JSON response which is a single string
   res.json([
     {
-      "id": '' + faker.random.number(),
-      "name": name + ' by ' + faker.name.findName(),
-      "location": faker.address.streetName() + ' ' + faker.random.number({'min': 1,'max': 200}),
-      "image": faker.image.city(),
-      "date": date,
-      /*"band": {
-        "BandId": '' + faker.random.number()}*/
-      
-    }
+      name: name + " by " + faker.name.findName(),
+      image: faker.image.city(),
+      date: date,
+    },
   ]);
-
 }
-

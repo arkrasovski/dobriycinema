@@ -21,16 +21,9 @@ import {
     MusicEvent,
     MusicEventFromJSON,
     MusicEventToJSON,
-    MusicWeeklyEvent,
-    MusicWeeklyEventFromJSON,
-    MusicWeeklyEventToJSON,
 } from '../models';
 
 export interface MusiceventsRequest {
-    date?: string;
-}
-
-export interface WeeklyeventsRequest {
     date?: string;
 }
 
@@ -66,36 +59,6 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async musicevents(requestParameters: MusiceventsRequest): Promise<Array<MusicEvent>> {
         const response = await this.musiceventsRaw(requestParameters);
-        return await response.value();
-    }
-
-    /**
-     * Returns list of musical city weeklyevents
-     */
-    async weeklyeventsRaw(requestParameters: WeeklyeventsRequest): Promise<runtime.ApiResponse<Array<MusicWeeklyEvent>>> {
-        const queryParameters: any = {};
-
-        if (requestParameters.date !== undefined) {
-            queryParameters['date'] = requestParameters.date;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/weeklyevents`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(MusicWeeklyEventFromJSON));
-    }
-
-    /**
-     * Returns list of musical city weeklyevents
-     */
-    async weeklyevents(requestParameters: WeeklyeventsRequest): Promise<Array<MusicWeeklyEvent>> {
-        const response = await this.weeklyeventsRaw(requestParameters);
         return await response.value();
     }
 
