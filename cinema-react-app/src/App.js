@@ -1,77 +1,76 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import MusicEventsTable from './components/MusicEventsTable';
-
-import Subscribe from './components/Subscribe';
+import "./App.css";
+import React from "react";
+import WeeeklyFilms from "./components/weeklyFilms";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  Redirect,  
-  useLocation
+  Redirect,
+  useLocation,
 } from "react-router-dom";
-import moment from 'moment'
 
+import moment from "moment";
 
 function App() {
   return (
-
-<Router>
-    <div>
+    <Router>
+      <div>
         <nav>
           <ul>
+
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/events/monday">Monday</Link>
+            </li>
+
+            <li>
+              <Link to="/events/tuesday">Tuesday</Link>
+            </li>
+
+            <li>
+              <Link to="/events/wednesday">Wednesday</Link>
             </li>
             <li>
-            <Link to="/currentevents">Today`events</Link>
+              <Link to="/events/thursday">Thursday</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/events/friday">Friday</Link>
             </li>
             <li>
-              <Link to="/subscribe">Subscribe</Link>
+              <Link to="/events/saturday">Saturday</Link>
             </li>
+            <li>
+              <Link to="/events/sunday">Sunday</Link>
+            </li>
+
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-      <div className="App">
-         
-        <section> 
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
+        <div className="App">
+          <section>
+            <Switch>
+
+              <Route path="/about">
+                <About />
+              </Route>
+
+              <Route path="/events/:id">
+                <WeeeklyFilms />
+              </Route>
 
 
+              <Route path="/">
+                <h1>Home</h1>
+                Welcome to our service. Please explore
+              </Route>
 
-            <Route path="/currentevents">
-            <MusicEventsTable />
-            </Route>
-         
-            <Route path="/subscribe">
-              <Subscribe />
-            </Route>
-
-            <Route path="/">
-              <h1>Home</h1>
-              Welcome to our service. You are on the home page. You can choose to watch this <Link to="/weeklyevents">week`s music festivals</Link>, including <Link to="/currentevents">today`s</Link>.
-            </Route>
-
-            <Route path="*">
-              <NoMatch />
-            </Route>
-
-          </Switch>
-          
-
-        </section>
+              <Route path="*">
+                <NoMatch />
+              </Route>
+            </Switch>
+          </section>
+        </div>
       </div>
-    </div>
     </Router>
   );
 }
@@ -93,10 +92,8 @@ function About() {
 
   return (
     <div>
-      <h2>
-        About us
-      </h2>
-      <p>This app helps you find an interesting festival and have an unforgettable weekend. Here you can choose <Link to="/weeklyevents">weekly events</Link>, as well as see the events planned for <Link to="/currentevents">today</Link>.</p>
+      <h2>About us</h2>
+      <p>Here is the description of the service and necessary terms.</p>
     </div>
   );
 }
