@@ -64,17 +64,16 @@ function getFilmEvents(req, res) {
   }
 
   var date = req.swagger.params.date.value || todayDate();
-  var name = util.format(' %s!', date);
 
   // this sends back a JSON response which is a single string
   res.json([
     {
       "id": '' + faker.random.number(),
       "name": faker.commerce.productName(),
-      "image": faker.image.city(),
+      "image": faker.image.imageUrl(),
       "description": faker.lorem.paragraph(),
       "cinemaLocation": faker.address.streetName() + ' ' + faker.random.number({ 'min': 1, 'max': 200 }),
-      "cinemaName": name + ' by ' + faker.company.companyName(),
+      "cinemaName": '' + faker.company.companyName(),
       "minCost": ' ' + faker.random.number({ 'min': 200, 'max': 400 }),
       "date": date,
     }
