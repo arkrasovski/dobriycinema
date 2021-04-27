@@ -9,9 +9,10 @@ var config = {
 };
 
 SwaggerExpress.create(config, function (err, swaggerExpress) {
-  if (err) {
-    throw err;
-  }
+
+
+  if (err) { throw err; }
+
 
   // install middleware
   swaggerExpress.register(app);
@@ -19,12 +20,7 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
   var port = process.env.PORT || 10010;
   app.listen(port);
 
-  if (swaggerExpress.runner.swagger.paths["/ratefilm"]) {
-    console.log(
-      "try this:\ncurl http://127.0.0.1:" + port + "/api/v1/ratefilm?name=Scott"
-    );
-  }
-  // if (swaggerExpress.runner.swagger.paths['/weeklyevents']) {
-  //   console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weeklyevents?name=Indus');
-  // }
+
+  console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weekly');
+
 });

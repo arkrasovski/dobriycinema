@@ -25,7 +25,7 @@ var faker = require("faker");
   we specify that in the exports of this module that 'hello' maps to the function named 'hello'
  */
 module.exports = {
-  ratefilm: getRateFilm,
+  weeklyevents: getFilmEvents,
 };
 
 /*
@@ -34,16 +34,52 @@ module.exports = {
   Param 1: a handle to the request object
   Param 2: a handle to the response object
  */
-function getRateFilm(req, res) {
+
+function getFilmEvents(req, res) {
   // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-  var date = req.swagger.params.date.value || "2020-03-23";
+
+  function todayDate() {
+    var today = new Date();
+    var dd = today.getDate();
+
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    var d = new Date(today),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
+  var date = req.swagger.params.date.value || todayDate();
+
 
   // this sends back a JSON response which is a single string
   res.json([
     {
-      name: faker.name.findName(),
-      image: faker.image.city(),
-      date: date,
-    },
+
+      "id": '' + faker.random.number(),
+      "name": faker.commerce.productName(),
+      "image": faker.image.imageUrl(),
+      "description": faker.lorem.paragraph(),
+      "cinemaLocation": faker.address.streetName() + ' ' + faker.random.number({ 'min': 1, 'max': 200 }),
+      "cinemaName": '' + faker.company.companyName(),
+      "minCost": ' ' + faker.random.number({ 'min': 200, 'max': 400 }),
+      "date": date,
+    }
+
   ]);
 }

@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   version: "0.1.0"
-  title: Music service
+  title: Film weekly service
 # during dev, should point to your local machine
 host: localhost:10010
 # basePath prefixes all resource paths 
@@ -18,17 +18,19 @@ produces:
   - application/json
 paths:
 
-  /ratefilm:
+
+  /weekly:
     # binds a127 app logic to a route
-    x-swagger-router-controller: ratefilm-controller
+    x-swagger-router-controller: weekly-controller
     get:
-      description: Returns list of ratefilm decription
+      description: Returns list of cinemas films
       # used as the method name of the controller
-      operationId: ratefilm
+      operationId: weeklyevents
+
       parameters:
         - name: date
           in: query
-          description: FIltering date
+          description: Filtering date
           required: false
           type: string
       responses:
@@ -36,7 +38,9 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/RateFilmResponse"
+
+            $ref: "#/definitions/FilmsEventsResponce"
+
         # responses may fall through to errors
         default:
           description: Error
@@ -46,12 +50,14 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-  RateFilmResponse:
+
+  FilmsEventsResponce:
       type: array
       items:
-        $ref: "#/definitions/Film"
+        $ref: "#/definitions/FilmEvent"
         
-  Film:
+  FilmEvent:
+
     required:
       - name
       - image
@@ -60,6 +66,14 @@ definitions:
       name:
         type: string
       image:
+        type: string
+      description:
+        type: string
+      cinemaLocation:
+        type: string
+      cinemaName: 
+        type: string
+      minCost:
         type: string
       date:
         type: string

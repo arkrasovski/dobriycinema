@@ -1,3 +1,15 @@
+.active {
+  font-weight: 900;
+}
+
+.day-content {
+  margin-top: -150px;
+}
+
+li {
+  list-style-type: none;
+}
+
 .App {
   text-align: center;
 }
