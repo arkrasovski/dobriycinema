@@ -20,15 +20,13 @@ class MusicEventsTable extends React.Component {
     return (
       <div>
         <h3>Today`s events</h3>
-        <button onClick={this.handleReload}>Reload</button>
+        {/* <button onClick={this.handleReload}>Reload</button> */}
         <table>
           {this.state.ratefilm.map((film) => (
             <div>
               <img src={film.image}></img>
-              <br></br>
-              {film.name}
-              <br></br>
-              {film.location}
+              <br></br>"{film.name}"<br></br>
+              Realese: {film.date}
             </div>
           ))}
         </table>
