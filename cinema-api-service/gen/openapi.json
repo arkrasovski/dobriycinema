@@ -45,6 +45,43 @@
       },
       "x-swagger-router-controller" : "ratefilm-controller"
     },
+    "/recommendations" : {
+      "get" : {
+        "description" : "Returns list of recommendations films",
+        "operationId" : "recommendations",
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "description" : "FIltering date",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/RecommendationsResponse"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "recommendations-controller"
+    },
     "/swagger" : {
       "x-swagger-pipe" : "swagger_raw"
     }
@@ -70,6 +107,12 @@
           "date" : {
             "type" : "string"
           }
+        }
+      },
+      "RecommendationsResponse" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Film"
         }
       },
       "ErrorResponse" : {

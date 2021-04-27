@@ -1,38 +1,38 @@
-import React from 'react';
-import * as Api from 'typescript-fetch-api'
-import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
-import Moment from 'react-moment';
-import moment from 'moment';
+import React from "react";
+import * as Api from "typescript-fetch-api";
+
+const api = new Api.DefaultApi();
 
 class Subscribe extends React.Component {
-    
-    constructor(props){
-        super(props);
+  constructor(props) {
+    super(props);
+    this.state = { recommendations: [] };
+    this.handleReload();
+    this.handleReload = this.handleReload.bind(this);
+  }
 
-        this.state = {
-            plans: [
-                {id: 1232, description: 'buy this tarif1', plan: 'bronze'},
-                {id: 1222, description: 'buy this tarif2', plan: 'silver'},
-                {id: 1212, description: 'buy this tarif3', plan: 'gold'}]
-        }
-    }
+  async handleReload(event) {
+    const response = await api.recommendations({ date: "" });
+    this.setState({ recommendations: response });
+  }
 
-
-
-
-render() {
-    return <div>
-        {/*<button onClick={this.handleReload}>Reload</button>*/}
-        <h2>Tarifs</h2>
+  render() {
+    return (
+      <div>
+        <h3>Today`s events</h3>
+        {/* <button onClick={this.handleReload}>Reload</button> */}
         <table>
-        <tr><td>id</td><td>План</td><td>description</td></tr>
-           {this.state.plans.map(
-               (event) => 
-                    <tr><td>{event.id}</td><td>{event.plan}</td><td>{event.description}</td></tr>)}
+          {this.state.recommendations.map((film) => (
+            <div>
+              <img src={film.image}></img>
+              <br></br>"{film.name}"<br></br>
+              {film.date}
+            </div>
+          ))}
         </table>
-    </div>
-}
+      </div>
+    );
+  }
 }
 
-export default withRouter(Subscribe);
+export default MusicEventsTable;

@@ -46,5 +46,20 @@ function getRecommendations(req, res) {
       image: faker.image.city(),
       date: date,
     },
+    {
+      name: faker.name.findName(),
+      image: faker.image.city(),
+      date: date,
+    },
+    {
+      name: faker.name.findName(),
+      image: faker.image.city(),
+      date: date,
+    },
+    {
+      name: faker.name.findName(),
+      image: faker.image.city(),
+      date: date,
+    },
   ]);
 }
