@@ -8,6 +8,43 @@
     "url" : "http://localhost:10010/api/v1"
   } ],
   "paths" : {
+    "/map" : {
+      "get" : {
+        "description" : "Returns list of musical city musicevents",
+        "operationId" : "map",
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "description" : "FIltering date",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MapResponse"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "map-controller"
+    },
     "/weekly" : {
       "get" : {
         "description" : "Returns list of cinemas films",
@@ -57,6 +94,12 @@
           "$ref" : "#/components/schemas/FilmEvent"
         }
       },
+      "MapResponse" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Map"
+        }
+      },
       "FilmEvent" : {
         "required" : [ "id" ],
         "type" : "object",
@@ -80,6 +123,27 @@
             "type" : "string"
           },
           "minCost" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Map" : {
+        "required" : [ "date" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "price" : {
+            "type" : "string"
+          },
+          "sits" : {
             "type" : "string"
           },
           "date" : {

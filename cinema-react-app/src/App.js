@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import WeeeklyFilms from "./components/weeklyFilms";
+import Map from "./components/Map";
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,7 +19,9 @@ function App() {
       <div>
         <nav>
           <ul>
-
+            <li>
+              <Link to="/map">Map</Link>
+            </li>
             <li>
               <Link to="/events/monday">Monday</Link>
             </li>
@@ -57,7 +60,9 @@ function App() {
               <Route path="/events/:id">
                 <WeeeklyFilms />
               </Route>
-
+              <Route path="/map">
+                <Map />
+              </Route>
 
               <Route path="/">
                 <h1>Home</h1>

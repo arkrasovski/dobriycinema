@@ -23,6 +23,10 @@ import {
     FilmEventToJSON,
 } from '../models';
 
+export interface MapRequest {
+    date?: string;
+}
+
 export interface WeeklyeventsRequest {
     date?: string;
 }
@@ -31,6 +35,36 @@ export interface WeeklyeventsRequest {
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
+
+    /**
+     * Returns list of musical city musicevents
+     */
+    async mapRaw(requestParameters: MapRequest): Promise<runtime.ApiResponse<Array<any>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.date !== undefined) {
+            queryParameters['date'] = requestParameters.date;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/map`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Returns list of musical city musicevents
+     */
+    async map(requestParameters: MapRequest): Promise<Array<any>> {
+        const response = await this.mapRaw(requestParameters);
+        return await response.value();
+    }
 
     /**
      * Returns list of cinemas films

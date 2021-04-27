@@ -8,6 +8,7 @@ src/apis/index.ts
 src/index.ts
 src/models/ErrorResponse.ts
 src/models/FilmEvent.ts
+src/models/ModelMap.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json
