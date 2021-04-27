@@ -4,9 +4,9 @@ info:
   title: Music service
 # during dev, should point to your local machine
 host: localhost:10010
-# basePath prefixes all resource paths 
+# basePath prefixes all resource paths
 basePath: /api/v1
-# 
+#
 schemes:
   # tip: remove http to make production-grade
   - http
@@ -17,14 +17,13 @@ consumes:
 produces:
   - application/json
 paths:
-
-  /musicevents:
+  /map:
     # binds a127 app logic to a route
-    x-swagger-router-controller: music-controller
+    x-swagger-router-controller: map-controller
     get:
       description: Returns list of musical city musicevents
       # used as the method name of the controller
-      operationId: musicevents
+      operationId: map
       parameters:
         - name: date
           in: query
@@ -36,7 +35,7 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/MusicEventResponse"
+            $ref: "#/definitions/MapResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -46,64 +45,29 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-  MusicEventResponse:
-      type: array
-      items:
-        $ref: "#/definitions/MusicEvent"
-        
-  MusicEvent:
+  MapResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Map"
+
+  Map:
     required:
-      - id
+      - date
     properties:
-      id:
-        type: string
       name:
         type: string
-      image:
+      title:
+        type: string
+      price:
+        type: string
+      sits:
         type: string
       date:
         type: string
-      location:
-        type: string
-      band: 
-        type: array
-        items: 
-          $ref: "#/definitions/Band"
-          
-        
-  Band:
-    required: 
-      - BandId
-      - BandName
-    properties: 
-      BandId:
-        type: string
-      BandName:
-        type: string
-      image:
-        type: string
-      people: 
-        type: array
-        items: 
-          $ref: "#/definitions/People"
-  
-  People:
-    required: 
-      - PersonId
-      - PersonIdName
-    properties: 
-      PersonId:
-        type: string
-      PersonIdName:
-        type: string
-      image:
-        type: string
-    
+
   ErrorResponse:
     required:
       - message
     properties:
       message:
         type: string
-
-

@@ -1,15 +1,17 @@
-'use strict';
+"use strict";
 
-var SwaggerExpress = require('swagger-express-mw');
-var app = require('express')();
+var SwaggerExpress = require("swagger-express-mw");
+var app = require("express")();
 module.exports = app; // for testing
 
 var config = {
-  appRoot: __dirname // required config
+  appRoot: __dirname, // required config
 };
 
-SwaggerExpress.create(config, function(err, swaggerExpress) {
-  if (err) { throw err; }
+SwaggerExpress.create(config, function (err, swaggerExpress) {
+  if (err) {
+    throw err;
+  }
 
   // install middleware
   swaggerExpress.register(app);
@@ -17,10 +19,7 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   var port = process.env.PORT || 10010;
   app.listen(port);
 
-  if (swaggerExpress.runner.swagger.paths['/musicevents']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/musicevents?name=Scott');
-  }
-  if (swaggerExpress.runner.swagger.paths['/weeklyevents']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weeklyevents?name=Indus');
+  if (swaggerExpress.runner.swagger.paths["/map"]) {
+    console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/map");
   }
 });

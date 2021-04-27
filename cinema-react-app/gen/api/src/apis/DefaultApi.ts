@@ -18,19 +18,9 @@ import {
     ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
-    MusicEvent,
-    MusicEventFromJSON,
-    MusicEventToJSON,
-    MusicWeeklyEvent,
-    MusicWeeklyEventFromJSON,
-    MusicWeeklyEventToJSON,
 } from '../models';
 
-export interface MusiceventsRequest {
-    date?: string;
-}
-
-export interface WeeklyeventsRequest {
+export interface MapRequest {
     date?: string;
 }
 
@@ -42,7 +32,7 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns list of musical city musicevents
      */
-    async musiceventsRaw(requestParameters: MusiceventsRequest): Promise<runtime.ApiResponse<Array<MusicEvent>>> {
+    async mapRaw(requestParameters: MapRequest): Promise<runtime.ApiResponse<Array<any>>> {
         const queryParameters: any = {};
 
         if (requestParameters.date !== undefined) {
@@ -52,50 +42,20 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/musicevents`,
+            path: `/map`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(MusicEventFromJSON));
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      * Returns list of musical city musicevents
      */
-    async musicevents(requestParameters: MusiceventsRequest): Promise<Array<MusicEvent>> {
-        const response = await this.musiceventsRaw(requestParameters);
-        return await response.value();
-    }
-
-    /**
-     * Returns list of musical city weeklyevents
-     */
-    async weeklyeventsRaw(requestParameters: WeeklyeventsRequest): Promise<runtime.ApiResponse<Array<MusicWeeklyEvent>>> {
-        const queryParameters: any = {};
-
-        if (requestParameters.date !== undefined) {
-            queryParameters['date'] = requestParameters.date;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/weeklyevents`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(MusicWeeklyEventFromJSON));
-    }
-
-    /**
-     * Returns list of musical city weeklyevents
-     */
-    async weeklyevents(requestParameters: WeeklyeventsRequest): Promise<Array<MusicWeeklyEvent>> {
-        const response = await this.weeklyeventsRaw(requestParameters);
+    async map(requestParameters: MapRequest): Promise<Array<any>> {
+        const response = await this.mapRaw(requestParameters);
         return await response.value();
     }
 

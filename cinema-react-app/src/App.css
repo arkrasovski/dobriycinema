@@ -13,6 +13,26 @@
   }
 }
 
+ /* Nikita's styles */
+ li{
+  font-weight: 700;
+ }
+ ol{
+   display: block;
+   margin: 0 auto;
+   width: 400px;
+ }
+ h3{
+   text-align-last: left;
+   margin: 0;
+ }
+ h4{
+   margin: 0;
+   text-align-last: left;
+   font-weight: 500;
+ }
+ /* Nikita's styles */
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
