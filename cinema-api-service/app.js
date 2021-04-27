@@ -24,7 +24,11 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
       "try this:\ncurl http://127.0.0.1:" + port + "/api/v1/ratefilm?name=Scott"
     );
   }
-  // if (swaggerExpress.runner.swagger.paths['/weeklyevents']) {
-  //   console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weeklyevents?name=Indus');
-  // }
+  if (swaggerExpress.runner.swagger.paths["/recommendations"]) {
+    console.log(
+      "try this:\ncurl http://127.0.0.1:" +
+        port +
+        "/api/v1/recommendations?name=Indus"
+    );
+  }
 });
