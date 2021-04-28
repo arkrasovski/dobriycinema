@@ -21,7 +21,9 @@ class Map extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="map-component">
+        <h2>
+        Today in Minsk`s cinemas</h2>
         <img src={map_img} class="map" alt="map" />
         <ol class="map-table">
           {this.state.map.map((event) => (

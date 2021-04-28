@@ -2,6 +2,9 @@ import "./App.css";
 import React from "react";
 import WeeeklyFilms from "./components/weeklyFilms";
 import Map from "./components/Map";
+import logo from "./components/dobriy.jpg";
+import lupa from "./components/lupa.png";
+import man from "./components/man.png";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,40 +19,17 @@ import moment from "moment";
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/map">Map</Link>
-            </li>
-            <li>
-              <Link to="/events/monday">Monday</Link>
-            </li>
-
-            <li>
-              <Link to="/events/tuesday">Tuesday</Link>
-            </li>
-
-            <li>
-              <Link to="/events/wednesday">Wednesday</Link>
-            </li>
-            <li>
-              <Link to="/events/thursday">Thursday</Link>
-            </li>
-            <li>
-              <Link to="/events/friday">Friday</Link>
-            </li>
-            <li>
-              <Link to="/events/saturday">Saturday</Link>
-            </li>
-            <li>
-              <Link to="/events/sunday">Sunday</Link>
-            </li>
-
-          </ul>
-        </nav>
-
         <div className="App">
+
+        <header> 
+          <div><img src={logo} class="logo" alt="logo" />
+        <ul><li>
+        <Link to="/events/monday"><p>Top film`s</p></Link></li>
+        <li><Link to="/map"><p>Minsk`s cinemas</p></Link></li>
+        <li><Link to="*"><p>Recommendations</p></Link></li></ul></div>
+        <div><input class="poisk" type="text"></input><input type="image" src={lupa} class="lupa" alt="Поиск" title="Поиск"></input>
+        <img src={man} class="man"></img><p>Enter</p></div></header>
+        
           <section>
             <Switch>
 
@@ -60,13 +40,13 @@ function App() {
               <Route path="/events/:id">
                 <WeeeklyFilms />
               </Route>
+        
               <Route path="/map">
-                <Map />
+              <Map />
               </Route>
-
               <Route path="/">
-                <h1>Home</h1>
-                Welcome to our service. Please explore
+                <WeeeklyFilms />
+                <Map />
               </Route>
 
               <Route path="*">
@@ -74,8 +54,34 @@ function App() {
               </Route>
             </Switch>
           </section>
+
+          <footer>
+  
+                <div >
+
+                    <span> DobriyCinema corp</span>
+                </div>
+                <div >
+                  <h4>We in social networks</h4>
+                    <ul>
+                        <li>Telephone: +375-17-312-54-23</li>
+                        <li>E-mail: dobriycinema@gmail.com</li>
+                    </ul>
+                </div>
+                <div >
+                  <h4>Conact us</h4>
+                    <ul>
+                        <li>Telephone: +375-17-312-54-23</li>
+                        <li>E-mail: dobriycinema@gmail.com</li>
+                    </ul>
+                </div>
+                
+
+           
+        </footer>
+
         </div>
-      </div>
+
     </Router>
   );
 }

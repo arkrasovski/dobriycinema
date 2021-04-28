@@ -2,6 +2,14 @@ import React from 'react';
 import * as Api from 'typescript-fetch-api'
 import moment from 'moment'
 import { withRouter } from "react-router";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useLocation,
+} from "react-router-dom";
 const api = new Api.DefaultApi();
 
 class EventsTable extends React.Component {
@@ -40,9 +48,38 @@ class EventsTable extends React.Component {
 
   render() {
     return <div className="day-content">
-      <h2>
-        {this.state.events.map((e) => e.date[0].toUpperCase() + e.date.slice(1, e.date.length))}
+      <h2>Let's watch a movie this week</h2>
+      <ul class="links">
+
+<li>
+  <Link to="/events/monday"><p>Monday</p></Link>
+</li>
+
+<li>
+  <Link to="/events/tuesday"><p>Tuesday</p></Link>
+</li>
+
+<li>
+  <Link to="/events/wednesday"><p>Wednesday</p></Link>
+</li>
+<li>
+  <Link to="/events/thursday"><p>Thursday</p></Link>
+</li>
+<li>
+  <Link to="/events/friday"><p>Friday</p></Link>
+</li>
+<li>
+  <Link to="/events/saturday"><p>Saturday</p></Link>
+</li>
+<li>
+  <Link to="/events/sunday"><p>Sunday</p></Link>
+</li>
+
+</ul>
+
+      <h2>Today {' ' + this.state.events.map((e) => e.date[0].toUpperCase() + e.date.slice(1, e.date.length)) +' '} let`s see
       </h2>
+
       <ul>
         {this.state.events.map((event) =>
           <li>
@@ -54,7 +91,9 @@ class EventsTable extends React.Component {
           </li>
         )}
       </ul>
+    
     </div>
+    
   }
 }
 
