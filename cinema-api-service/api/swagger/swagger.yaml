@@ -146,7 +146,7 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-   RateFilmResponse:
+  RateFilmResponse:
     type: array
     items:
       $ref: "#/definitions/Film"
@@ -198,9 +198,6 @@ definitions:
       - name
       - image
       - date
-      - genre
-      - plot
-      - country
 
     properties:
       name:

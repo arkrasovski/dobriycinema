@@ -21,8 +21,8 @@ class User extends React.Component {
     return (
       <div >
         <h2>
-        Today in Minsk`sgfgff cinemas</h2>
-       
+          Today in Minsk`s cinemas</h2>
+
         <ol >
           {this.state.user.map((event) => (
             <li>
