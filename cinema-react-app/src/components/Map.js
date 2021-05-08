@@ -29,6 +29,7 @@ class Map extends React.Component {
               <h3>Title: {event.title}</h3>
               <h4>Free sits: {event.sits}</h4>
               <h4>Price: {event.price}</h4>
+              <h4>Time: {event.time}:00</h4>
             </li>
           ))}
         </ol>
