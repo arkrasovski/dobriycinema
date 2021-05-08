@@ -82,6 +82,43 @@
       },
       "x-swagger-router-controller" : "weekly-controller"
     },
+    "/user" : {
+      "get" : {
+        "description" : "Returns list of musical city musicevents",
+        "operationId" : "user",
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "description" : "FIltering date",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "user-controller"
+    },
     "/swagger" : {
       "x-swagger-pipe" : "swagger_raw"
     }
@@ -98,6 +135,12 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/Map"
+        }
+      },
+      "UserResponse" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/User"
         }
       },
       "FilmEvent" : {
@@ -144,6 +187,27 @@
             "type" : "string"
           },
           "sits" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string"
+          }
+        }
+      },
+      "User" : {
+        "required" : [ "date" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "image" : {
             "type" : "string"
           },
           "date" : {

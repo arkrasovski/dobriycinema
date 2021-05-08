@@ -10,7 +10,7 @@ class Map extends React.Component {
     super(props);
     this.state = { map: [] };
 
-    this.handleReload = this.handleReload.bind(this);
+    this.handleReload = this.handleReload.bind(this);//это вообще лишнее , так влад сказал
     this.handleReload();
   }
 

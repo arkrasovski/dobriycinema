@@ -21,9 +21,16 @@ import {
     FilmEvent,
     FilmEventFromJSON,
     FilmEventToJSON,
+    User,
+    UserFromJSON,
+    UserToJSON,
 } from '../models';
 
 export interface MapRequest {
+    date?: string;
+}
+
+export interface UserRequest {
     date?: string;
 }
 
@@ -63,6 +70,36 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async map(requestParameters: MapRequest): Promise<Array<any>> {
         const response = await this.mapRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Returns list of musical city musicevents
+     */
+    async userRaw(requestParameters: UserRequest): Promise<runtime.ApiResponse<Array<User>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.date !== undefined) {
+            queryParameters['date'] = requestParameters.date;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/user`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(UserFromJSON));
+    }
+
+    /**
+     * Returns list of musical city musicevents
+     */
+    async user(requestParameters: UserRequest): Promise<Array<User>> {
+        const response = await this.userRaw(requestParameters);
         return await response.value();
     }
 

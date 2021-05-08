@@ -21,4 +21,7 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
     console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/map");
   }
   console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weekly');
+  if (swaggerExpress.runner.swagger.paths["/user"]) {
+    console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/user");
+  }
 });

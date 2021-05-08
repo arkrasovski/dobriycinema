@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import WeeeklyFilms from "./components/weeklyFilms";
 import Map from "./components/Map";
+import User from "./components/User";
 import logo from "./components/dobriy.jpg";
 import lupa from "./components/lupa.png";
 import man from "./components/man.png";
@@ -45,14 +46,15 @@ function App() {
               <Map />
               </Route>
               <Route path="/">
-                <WeeeklyFilms />
-                <Map />
+                <User />
               </Route>
 
               <Route path="*">
                 <NoMatch />
               </Route>
             </Switch>
+
+            
           </section>
 
           <footer>
