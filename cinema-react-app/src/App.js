@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import MusicEventsTable from "./components/MusicEventsTable";
+import LastSeen from "./components/LastSeen";
 
 import Recommendations from "./components/Recommendations";
 import {
@@ -45,7 +45,7 @@ function App() {
               </Route>
 
               <Route path="/ratefilm">
-                <MusicEventsTable />
+                <LastSeen />
                 <Recommendations />
               </Route>
 

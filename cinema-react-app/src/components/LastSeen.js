@@ -3,7 +3,7 @@ import * as Api from "typescript-fetch-api";
 
 const api = new Api.DefaultApi();
 
-class MusicEventsTable extends React.Component {
+class LastSeen extends React.Component {
   constructor(props) {
     super(props);
     this.state = { ratefilm: [] };
@@ -39,4 +39,4 @@ class MusicEventsTable extends React.Component {
   }
 }
 
-export default MusicEventsTable;
+export default LastSeen;
