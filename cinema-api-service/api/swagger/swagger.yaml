@@ -4,9 +4,9 @@ info:
   title: Film weekly service
 # during dev, should point to your local machine
 host: localhost:10010
-# basePath prefixes all resource paths 
+# basePath prefixes all resource paths
 basePath: /api/v1
-# 
+#
 schemes:
   # tip: remove http to make production-grade
   - http
@@ -17,17 +17,67 @@ consumes:
 produces:
   - application/json
 paths:
+  /ratefilm:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: ratefilm-controller
+    get:
+      description: Returns list of ratefilm decription
+      # used as the method name of the controller
+      operationId: ratefilm
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/RateFilmResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /recommendations:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: recommendations-controller
+    get:
+      description: Returns list of recommendations films
+      # used as the method name of the controller
+      operationId: recommendations
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/RecommendationsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
   /map:
     # binds a127 app logic to a route
     x-swagger-router-controller: map-controller
     get:
-      description: Returns list of musical city musicevents
+      description: Returns list of recommendations films
       # used as the method name of the controller
       operationId: map
       parameters:
         - name: date
           in: query
-          description: FIltering date
+          description: Filtering date
           required: false
           type: string
       responses:
@@ -41,7 +91,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-            
+
   /weekly:
     # binds a127 app logic to a route
     x-swagger-router-controller: weekly-controller
@@ -66,7 +116,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  
+
   /user:
     # binds a127 app logic to a route
     x-swagger-router-controller: user-controller
@@ -91,15 +141,49 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-            
+
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
+   RateFilmResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Film"
+  Film:
+    required:
+      - name
+      - image
+      - date
+      - genre
+      - plot
+      - country
+
+    properties:
+      name:
+        type: string
+      image:
+        type: string
+      date:
+        type: string
+      genre:
+        type: string
+      plot:
+        type: string
+      country:
+        type: string
+      rating:
+        type: string
+
+  RecommendationsResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Film"
+
   FilmsEventsResponce:
-      type: array
-      items:
-        $ref: "#/definitions/FilmEvent"
+    type: array
+    items:
+      $ref: "#/definitions/FilmEvent"
   MapResponse:
     type: array
     items:
@@ -108,13 +192,17 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/User"
-        
+
   FilmEvent:
     required:
-      - id
+      - name
+      - image
+      - date
+      - genre
+      - plot
+      - country
+
     properties:
-      id:
-        type: string
       name:
         type: string
       image:
@@ -123,13 +211,13 @@ definitions:
         type: string
       cinemaLocation:
         type: string
-      cinemaName: 
+      cinemaName:
         type: string
       minCost:
         type: string
       date:
         type: string
-        
+
   Map:
     required:
       - date
@@ -144,7 +232,7 @@ definitions:
         type: string
       date:
         type: string
-    
+
   User:
     required:
       - date
@@ -160,12 +248,9 @@ definitions:
       date:
         type: string
 
-    
   ErrorResponse:
     required:
       - message
     properties:
       message:
         type: string
-
-
