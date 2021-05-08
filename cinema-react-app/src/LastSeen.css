@@ -1,0 +1,109 @@
+.last-seen {
+  padding: 60px 120px 0 120px;
+  color: rgba(244, 244, 244, 1);
+}
+
+.last-seen-title {
+  font-family: Bebas Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #f4f4f4;
+  margin-bottom: 40px;
+}
+
+.last-seen-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.last-seen-image {
+  width: 380px;
+  height: 415px;
+  opacity: 0.35;
+  display: block;
+  border-radius: 10px;
+}
+
+.last-seen-description {
+  padding-left: 32px;
+  width: 370px;
+}
+
+.last-seen-name {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #f4f4f4;
+}
+
+.last-seen-grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 10px;
+}
+
+.last-seen-descriptions-headings {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.0125em;
+  color: #f4f4f4;
+}
+
+.last-seen-descriptions-meaning {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.0125em;
+}
+
+.last-seen-descriptions-headings > div {
+  margin-bottom: 10px;
+}
+
+.last-seen-descriptions-meaning > div {
+  margin-bottom: 13px;
+}
+
+.last-seen-image-block {
+  position: relative;
+}
+
+.last-seen-rating {
+  font-family: Montserrat;
+  background-color: #1f1b2e;
+  opacity: 0.98;
+  position: absolute;
+  height: 80px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ea0042;
+  font-weight: bold;
+  font-size: 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.popcorn-icon {
+  width: 11%;
+  display: block;
+  margin-right: 5px;
+}

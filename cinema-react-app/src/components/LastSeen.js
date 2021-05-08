@@ -18,22 +18,39 @@ class LastSeen extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Last seen</h3>
-        {/* <button onClick={this.handleReload}>Reload</button> */}
-        <table>
-          {this.state.ratefilm.map((film) => (
-            <div>
-              <img src={film.image}></img>
-              <div>{film.rating}</div>
-              <h1>{film.name}</h1>
-              <div>Year: {film.date} </div>
-              <div>Genre: {film.genre} </div>
-              <div>Country: {film.country} </div>
-              <div>Plot: {film.plot} </div>
+      <div class="last-seen">
+        <h3 class="last-seen-title">your last view</h3>
+        {this.state.ratefilm.map((film) => (
+          <div class="last-seen-wrapper">
+            <div class="last-seen-image-block">
+              <img class="last-seen-image" src={film.image}></img>
+              <div class="last-seen-rating">
+                <img
+                  class="popcorn-icon"
+                  src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/audience/aud_score-fresh.6c24d79faaf.svg"
+                ></img>
+                {film.rating}
+              </div>
             </div>
-          ))}
-        </table>
+            <div class="last-seen-description">
+              <h1 class="last-seen-name">{film.name}</h1>
+              <div class="last-seen-grid-wrapper">
+                <div class="last-seen-descriptions-headings">
+                  <div>Year:</div>
+                  <div>Genre:</div>
+                  <div>Country:</div>
+                  <div>Plot:</div>
+                </div>
+                <div class="last-seen-descriptions-meaning">
+                  <div>{film.date}</div>
+                  <div>{film.genre}</div>
+                  <div>{film.country}</div>
+                  <div>{film.plot}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     );
   }

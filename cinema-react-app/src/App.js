@@ -1,4 +1,6 @@
 import "./App.css";
+import "./LastSeen.css";
+import "./Recommendations.css";
 import React from "react";
 import WeeeklyFilms from "./components/weeklyFilms";
 import Map from "./components/Map";
@@ -25,75 +27,71 @@ import moment from "moment";
 function App() {
   return (
     <Router>
-        <div className="App">
-
-        <header> 
+      <div className="App">
+        <header>
           <div className="leftbar">
-          <div className="logo"><img src={logo}></img></div>
-          <ul>
-            <li>
-              <Link to="/events/monday">Timetable</Link>
-            </li>
-            <li>
-              <Link to="/map">Map</Link>
-            </li>
-            <li>
-              <Link to="/recomendations">Recommendations</Link>
-            </li>
-          </ul>
+            <div className="logo">
+              <img src={logo}></img>
+            </div>
+            <ul>
+              <li>
+                <Link to="/events/monday">Timetable</Link>
+              </li>
+              <li>
+                <Link to="/map">Map</Link>
+              </li>
+              <li>
+                <Link to="/recomendations">Recommendations</Link>
+              </li>
+            </ul>
           </div>
-          <div className = "rightbar">
-          <input placeholder="Find the film..." type="text"></input>
-          <img className = "lupa" src={search}></img>
-          <img src={user}></img>
+          <div className="rightbar">
+            <input placeholder="Find the film..." type="text"></input>
+            <img className="lupa" src={search}></img>
+            <img src={user}></img>
           </div>
-       </header>
-        
-          <section>
-            <Switch>
+        </header>
 
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/recomendations">
+        <section>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/recomendations">
               <LastSeen />
-                <Recommendations />
-              </Route>
-              <Route path="/events/:id">
-                <WeeeklyFilms />
-              </Route>
-        
-              <Route path="/map">
+              <Recommendations />
+            </Route>
+            <Route path="/events/:id">
+              <WeeeklyFilms />
+            </Route>
+
+            <Route path="/map">
               <Map />
-              </Route>
-              <Route path="/">
-                <User />
-              </Route>
+            </Route>
+            <Route path="/">
+              <User />
+            </Route>
 
-              <Route path="*">
-                <NoMatch />
-              </Route>
-            </Switch>
+            <Route path="*">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </section>
 
-            
-          </section>
-
-          <footer>
-           <div className="footerText">
-             <span>Join us: </span>
-             <img src={twitter}></img>
-             <img src={facebook}></img>
-             <img src={vk}></img>
-           </div>
-           <div className="footerSearch">
-             <p>News</p>
-             <input placeholder="Enter your email" type="text"></input>
-             <button>Subscribe</button>
-           </div>
+        <footer>
+          <div className="footerText">
+            <span>Join us: </span>
+            <img src={twitter}></img>
+            <img src={facebook}></img>
+            <img src={vk}></img>
+          </div>
+          <div className="footerSearch">
+            <p>News</p>
+            <input placeholder="Enter your email" type="text"></input>
+            <button>Subscribe</button>
+          </div>
         </footer>
-
-        </div>
-
+      </div>
     </Router>
   );
 }
@@ -120,6 +118,5 @@ function About() {
     </div>
   );
 }
-
 
 export default App;

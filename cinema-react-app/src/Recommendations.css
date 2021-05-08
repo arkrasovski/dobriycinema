@@ -1,0 +1,121 @@
+.recommendations {
+  padding-bottom: 60px;
+  padding-right: 120px;
+  padding-left: 120px;
+}
+
+.tricky-buttons {
+  width: 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.recommendation-button-1 {
+  margin-right: 4px;
+}
+
+.recommendation-button-2 {
+  margin-left: 4px;
+}
+
+.recommendations-title {
+  font-family: Bebas Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #f4f4f4;
+  margin-bottom: 40px;
+}
+
+.recommended-films {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 32px;
+}
+
+.recommended-film-image {
+  display: block;
+  width: 276px;
+  height: 273px;
+  opacity: 0.35;
+  border-radius: 10px;
+}
+
+.one-recommended-film {
+  position: relative;
+}
+
+.recommended-film-rating {
+  font-family: Montserrat;
+  background-color: #1f1b2e;
+  opacity: 0.98;
+  position: absolute;
+  height: 68px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ea0042;
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.popcorn-icon-rec {
+  display: block;
+  width: 8%;
+  margin-right: 5px;
+}
+
+.recommended-film-name {
+  position: absolute;
+  height: 66px;
+  left: 27px;
+  right: 27px;
+  top: 15px;
+
+  text-transform: capitalize;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.0125em;
+  color: #f4f4f4;
+}
+
+.recommendation-button {
+  margin-top: 10px;
+  width: 40%;
+  color: rgba(244, 244, 244, 1);
+  background: #a3002e;
+  border: none;
+  height: 30px;
+  border-radius: 10px;
+  font-family: Bebas Neue;
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 62px;
+  text-transform: lowercase;
+
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+
+.recommendation-button:hover {
+  background-color: #ea0042;
+}
+
+.recommendation-button > img {
+  width: 20%;
+  opacity: 0.8;
+}

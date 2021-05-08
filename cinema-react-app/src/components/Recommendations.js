@@ -18,18 +18,33 @@ class Recommendations extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Recommendations</h3>
-        <button onClick={this.handleReload}>Reload</button>
-        <table>
+      <div class="recommendations">
+        <div class="tricky-buttons">
+          <button class="recommendation-button recommendation-button-1" onClick={this.handleReload}>
+            <img src="images/like.png"></img>
+          </button>
+          <button class="recommendation-button recommendation-button-2" onClick={this.handleReload}>
+            <img src="images/dislike.png"></img>
+          </button>
+        </div>
+
+        <h3 class="recommendations-title">Recommendations</h3>
+
+        <div class="recommended-films">
           {this.state.recommendations.map((film) => (
-            <div>
-              <img src={film.image}></img>
-              <div> {film.name} </div>
-              <div> {film.rating} </div>
+            <div class="one-recommended-film">
+              <div class="recommended-film-name"> {film.name} </div>
+              <img class="recommended-film-image" src={film.image}></img>
+              <div class="recommended-film-rating">
+                <img
+                  class="popcorn-icon-rec"
+                  src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/audience/aud_score-fresh.6c24d79faaf.svg"
+                ></img>
+                {film.rating}{" "}
+              </div>
             </div>
           ))}
-        </table>
+        </div>
       </div>
     );
   }
