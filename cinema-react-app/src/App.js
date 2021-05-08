@@ -3,9 +3,12 @@ import React from "react";
 import WeeeklyFilms from "./components/weeklyFilms";
 import Map from "./components/Map";
 import User from "./components/User";
-import logo from "./components/dobriy.jpg";
-import lupa from "./components/lupa.png";
-import man from "./components/man.png";
+import logo from "./images/logo.svg";
+import search from "./images/Search.svg";
+import user from "./images/account.svg";
+import twitter from "./images/twitter.svg";
+import facebook from "./images/facebook.svg";
+import vk from "./images/vk.svg";
 import LastSeen from "./components/LastSeen";
 import Recommendations from "./components/Recommendations";
 import {
@@ -25,13 +28,26 @@ function App() {
         <div className="App">
 
         <header> 
-          <div><img src={logo} class="logo" alt="logo" />
-        <ul><li>
-        <Link to="/events/monday"><p>Top film`s</p></Link></li>
-        <li><Link to="/map"><p>Minsk`s cinemas</p></Link></li>
-        <li><Link to="/recomendations"><p>Recommendations</p></Link></li></ul></div>
-        <div><input class="poisk" type="text"></input><input type="image" src={lupa} class="lupa" alt="Поиск" title="Поиск"></input>
-        <img src={man} class="man"></img><p>Enter</p></div></header>
+          <div className="leftbar">
+          <div className="logo"><img src={logo}></img></div>
+          <ul>
+            <li>
+              <Link to="/events/monday">Timetable</Link>
+            </li>
+            <li>
+              <Link to="/map">Map</Link>
+            </li>
+            <li>
+              <Link to="/recomendations">Recommendations</Link>
+            </li>
+          </ul>
+          </div>
+          <div className = "rightbar">
+          <input placeholder="Find the film..." type="text"></input>
+          <img className = "lupa" src={search}></img>
+          <img src={user}></img>
+          </div>
+       </header>
         
           <section>
             <Switch>
@@ -63,28 +79,17 @@ function App() {
           </section>
 
           <footer>
-  
-                <div >
-
-                    <span> DobriyCinema corp</span>
-                </div>
-                <div >
-                  <h4>We in social networks</h4>
-                    <ul>
-                        <li>Telephone: +375-17-312-54-23</li>
-                        <li>E-mail: dobriycinema@gmail.com</li>
-                    </ul>
-                </div>
-                <div >
-                  <h4>Conact us</h4>
-                    <ul>
-                        <li>Telephone: +375-17-312-54-23</li>
-                        <li>E-mail: dobriycinema@gmail.com</li>
-                    </ul>
-                </div>
-                
-
-           
+           <div className="footerText">
+             <span>Join us: </span>
+             <img src={twitter}></img>
+             <img src={facebook}></img>
+             <img src={vk}></img>
+           </div>
+           <div className="footerSearch">
+             <p>News</p>
+             <input placeholder="Enter your email" type="text"></input>
+             <button>Subscribe</button>
+           </div>
         </footer>
 
         </div>

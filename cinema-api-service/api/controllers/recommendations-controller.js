@@ -79,5 +79,14 @@ function getRecommendations(req, res) {
       country: "" + faker.address.country(),
       rating: "" + faker.random.number({ min: 35, max: 100 }) + "%",
     },
+    {
+      name: "" + faker.lorem.words(2),
+      image: "images/" + faker.random.number({ min: 1, max: 20 }) + ".png",
+      date: "" + faker.random.number({ min: 1920, max: 2021 }),
+      genre: "" + genres[faker.random.number({ min: 0, max: 10 })],
+      plot: "" + faker.lorem.sentences(3),
+      country: "" + faker.address.country(),
+      rating: "" + faker.random.number({ min: 35, max: 100 }) + "%",
+    },
   ]);
 }
