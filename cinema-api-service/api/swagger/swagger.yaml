@@ -28,7 +28,7 @@ paths:
       parameters:
         - name: date
           in: query
-          description: FIltering date
+          description: Filtering date
           required: false
           type: string
       responses:
@@ -53,7 +53,7 @@ paths:
       parameters:
         - name: date
           in: query
-          description: FIltering date
+          description: Filtering date
           required: false
           type: string
       responses:
@@ -87,6 +87,10 @@ definitions:
       image:
         type: string
       date:
+        type: string
+      genre:
+        type: string
+      plot:
         type: string
         
   

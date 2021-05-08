@@ -20,15 +20,9 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
   app.listen(port);
 
   if (swaggerExpress.runner.swagger.paths["/ratefilm"]) {
-    console.log(
-      "try this:\ncurl http://127.0.0.1:" + port + "/api/v1/ratefilm?name=Scott"
-    );
+    console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/ratefilm");
   }
   if (swaggerExpress.runner.swagger.paths["/recommendations"]) {
-    console.log(
-      "try this:\ncurl http://127.0.0.1:" +
-        port +
-        "/api/v1/recommendations?name=Indus"
-    );
+    console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/recommendations");
   }
 });

@@ -28,6 +28,20 @@ module.exports = {
   ratefilm: getRateFilm,
 };
 
+let genres = [
+  "Action",
+  "Adventure",
+  "Animated",
+  "Comedy",
+  "Drama",
+  "Fantasy",
+  "Historical",
+  "Horror",
+  "Science fiction",
+  "Thriller",
+  "Western",
+];
+
 /*
   Functions in a127 controllers used for operations should take two parameters:
 
@@ -35,15 +49,14 @@ module.exports = {
   Param 2: a handle to the response object
  */
 function getRateFilm(req, res) {
-  // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-  var date = req.swagger.params.date.value || "2020-03-23";
-
   // this sends back a JSON response which is a single string
   res.json([
     {
-      name: faker.name.findName(),
-      image: faker.image.city(),
-      date: date,
+      name: "" + faker.name.findName(),
+      image: "" + faker.image.city(),
+      date: "" + faker.random.number({ min: 1920, max: 2021 }),
+      genre: "" + genres[faker.random.number({ min: 0, max: 10 })],
+      plot: "" + faker.lorem.sentences(3),
     },
   ]);
 }
