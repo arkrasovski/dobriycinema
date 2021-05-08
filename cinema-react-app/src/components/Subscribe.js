@@ -20,7 +20,7 @@ class Subscribe extends React.Component {
     return (
       <div>
         <h3>Today`s events</h3>
-        {/* <button onClick={this.handleReload}>Reload</button> */}
+        <button onClick={this.handleReload}>Reload</button>
         <table>
           {this.state.recommendations.map((film) => (
             <div>
@@ -35,4 +35,4 @@ class Subscribe extends React.Component {
   }
 }
 
-export default MusicEventsTable;
+export default Subscribe;
