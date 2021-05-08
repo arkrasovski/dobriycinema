@@ -119,6 +119,80 @@
       },
       "x-swagger-router-controller" : "user-controller"
     },
+    "/ratefilm" : {
+      "get" : {
+        "description" : "Returns list of ratefilm decription",
+        "operationId" : "ratefilm",
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "description" : "Filtering date",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/RateFilmResponse"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "ratefilm-controller"
+    },
+    "/recommendations" : {
+      "get" : {
+        "description" : "Returns list of recommendations films",
+        "operationId" : "recommendations",
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "description" : "Filtering date",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/RecommendationsResponse"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "recommendations-controller"
+    },
     "/swagger" : {
       "x-swagger-pipe" : "swagger_raw"
     }
@@ -141,6 +215,18 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/User"
+        }
+      },
+      "RateFilmResponse" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Film"
+        }
+      },
+      "RecommendationsResponse" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Film"
         }
       },
       "FilmEvent" : {
@@ -211,6 +297,33 @@
             "type" : "string"
           },
           "date" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Film" : {
+        "required" : [ "country", "date", "genre", "image", "name", "plot" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "image" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string"
+          },
+          "genre" : {
+            "type" : "string"
+          },
+          "plot" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "rating" : {
             "type" : "string"
           }
         }

@@ -91,6 +91,55 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /ratefilm:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: ratefilm-controller
+    get:
+      description: Returns list of ratefilm decription
+      # used as the method name of the controller
+      operationId: ratefilm
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/RateFilmResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+            
+  /recommendations:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: recommendations-controller
+    get:
+      description: Returns list of recommendations films
+      # used as the method name of the controller
+      operationId: recommendations
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/RecommendationsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
             
   /swagger:
     x-swagger-pipe: swagger_raw
@@ -108,6 +157,15 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/User"
+  RateFilmResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Film"
+  RecommendationsResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Film"
+
         
   FilmEvent:
     required:
@@ -159,6 +217,30 @@ definitions:
         type: string
       date:
         type: string
+  Film:
+    required:
+      - name
+      - image
+      - date
+      - genre
+      - plot
+      - country
+    properties:
+      name:
+        type: string
+      image:
+        type: string
+      date:
+        type: string
+      genre:
+        type: string
+      plot:
+        type: string
+      country:
+        type: string
+      rating:
+        type: string
+
 
     
   ErrorResponse:

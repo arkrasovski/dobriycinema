@@ -18,6 +18,9 @@ import {
     ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+    Film,
+    FilmFromJSON,
+    FilmToJSON,
     FilmEvent,
     FilmEventFromJSON,
     FilmEventToJSON,
@@ -27,6 +30,14 @@ import {
 } from '../models';
 
 export interface MapRequest {
+    date?: string;
+}
+
+export interface RatefilmRequest {
+    date?: string;
+}
+
+export interface RecommendationsRequest {
     date?: string;
 }
 
@@ -70,6 +81,66 @@ export class DefaultApi extends runtime.BaseAPI {
      */
     async map(requestParameters: MapRequest): Promise<Array<any>> {
         const response = await this.mapRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Returns list of ratefilm decription
+     */
+    async ratefilmRaw(requestParameters: RatefilmRequest): Promise<runtime.ApiResponse<Array<Film>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.date !== undefined) {
+            queryParameters['date'] = requestParameters.date;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/ratefilm`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(FilmFromJSON));
+    }
+
+    /**
+     * Returns list of ratefilm decription
+     */
+    async ratefilm(requestParameters: RatefilmRequest): Promise<Array<Film>> {
+        const response = await this.ratefilmRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Returns list of recommendations films
+     */
+    async recommendationsRaw(requestParameters: RecommendationsRequest): Promise<runtime.ApiResponse<Array<Film>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.date !== undefined) {
+            queryParameters['date'] = requestParameters.date;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/recommendations`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(FilmFromJSON));
+    }
+
+    /**
+     * Returns list of recommendations films
+     */
+    async recommendations(requestParameters: RecommendationsRequest): Promise<Array<Film>> {
+        const response = await this.recommendationsRaw(requestParameters);
         return await response.value();
     }
 

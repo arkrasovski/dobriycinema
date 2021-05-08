@@ -6,6 +6,8 @@ import User from "./components/User";
 import logo from "./components/dobriy.jpg";
 import lupa from "./components/lupa.png";
 import man from "./components/man.png";
+import LastSeen from "./components/LastSeen";
+import Recommendations from "./components/Recommendations";
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,7 +29,7 @@ function App() {
         <ul><li>
         <Link to="/events/monday"><p>Top film`s</p></Link></li>
         <li><Link to="/map"><p>Minsk`s cinemas</p></Link></li>
-        <li><Link to="*"><p>Recommendations</p></Link></li></ul></div>
+        <li><Link to="/recomendations"><p>Recommendations</p></Link></li></ul></div>
         <div><input class="poisk" type="text"></input><input type="image" src={lupa} class="lupa" alt="Поиск" title="Поиск"></input>
         <img src={man} class="man"></img><p>Enter</p></div></header>
         
@@ -37,7 +39,10 @@ function App() {
               <Route path="/about">
                 <About />
               </Route>
-
+              <Route path="/recomendations">
+              <LastSeen />
+                <Recommendations />
+              </Route>
               <Route path="/events/:id">
                 <WeeeklyFilms />
               </Route>

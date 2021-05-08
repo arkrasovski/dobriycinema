@@ -24,4 +24,10 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
   if (swaggerExpress.runner.swagger.paths["/user"]) {
     console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/user");
   }
+  if (swaggerExpress.runner.swagger.paths["/ratefilm"]) {
+    console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/ratefilm");
+  }
+  if (swaggerExpress.runner.swagger.paths["/recommendations"]) {
+    console.log("try this:\ncurl http://127.0.0.1:" + port + "/api/v1/recommendations");
+  }
 });
