@@ -25,8 +25,12 @@ class MusicEventsTable extends React.Component {
           {this.state.ratefilm.map((film) => (
             <div>
               <img src={film.image}></img>
-              <br></br>"{film.name}"<br></br>
-              Realese: {film.date}
+              <div>{film.rating}</div>
+              <h1>{film.name}</h1>
+              <div>Year: {film.date} </div>
+              <div>Genre: {film.genre} </div>
+              <div>Country: {film.country} </div>
+              <div>Plot: {film.plot} </div>
             </div>
           ))}
         </table>

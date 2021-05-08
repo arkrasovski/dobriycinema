@@ -3,7 +3,7 @@ import "./App.css";
 import React from "react";
 import MusicEventsTable from "./components/MusicEventsTable";
 
-import Subscribe from "./components/Subscribe";
+import Recommendations from "./components/Recommendations";
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,7 +30,7 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/subscribe">Subscribe</Link>
+              <Link to="/recommendations">Recommendations</Link>
             </li>
           </ul>
         </nav>
@@ -46,18 +46,18 @@ function App() {
 
               <Route path="/ratefilm">
                 <MusicEventsTable />
+                <Recommendations />
               </Route>
 
-              <Route path="/subscribe">
-                <Subscribe />
+              <Route path="/recommendations">
+                <Recommendations />
               </Route>
 
               <Route path="/">
                 <h1>Home</h1>
-                Welcome to our service. You are on the home page. You can choose
-                to watch this{" "}
-                <Link to="/weeklyevents">week`s music festivals</Link>,
-                including <Link to="/ratefilm">today`s</Link>.
+                Welcome to our service. You are on the home page. You can choose to watch this{" "}
+                <Link to="/weeklyevents">week`s music festivals</Link>, including{" "}
+                <Link to="/ratefilm">today`s</Link>.
               </Route>
 
               <Route path="*">
@@ -90,10 +90,9 @@ function About() {
     <div>
       <h2>About us</h2>
       <p>
-        This app helps you find an interesting festival and have an
-        unforgettable weekend. Here you can choose{" "}
-        <Link to="/weeklyevents">weekly events</Link>, as well as see the events
-        planned for <Link to="/ratefilm">today</Link>.
+        This app helps you find an interesting festival and have an unforgettable weekend. Here you
+        can choose <Link to="/weeklyevents">weekly events</Link>, as well as see the events planned
+        for <Link to="/ratefilm">today</Link>.
       </p>
     </div>
   );

@@ -33,6 +33,30 @@ export interface Film {
      * @memberof Film
      */
     date: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Film
+     */
+    genre: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Film
+     */
+    plot: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Film
+     */
+    country: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Film
+     */
+    rating?: string;
 }
 export declare function FilmFromJSON(json: any): Film;
 export declare function FilmFromJSONTyped(json: any, ignoreDiscriminator: boolean): Film;

@@ -3,7 +3,7 @@ import * as Api from "typescript-fetch-api";
 
 const api = new Api.DefaultApi();
 
-class Subscribe extends React.Component {
+class Recommendations extends React.Component {
   constructor(props) {
     super(props);
     this.state = { recommendations: [] };
@@ -25,8 +25,8 @@ class Subscribe extends React.Component {
           {this.state.recommendations.map((film) => (
             <div>
               <img src={film.image}></img>
-              <br></br>"{film.name}"<br></br>
-              {film.date}
+              <div> {film.name} </div>
+              <div> {film.rating} </div>
             </div>
           ))}
         </table>
@@ -35,4 +35,4 @@ class Subscribe extends React.Component {
   }
 }
 
-export default Subscribe;
+export default Recommendations;

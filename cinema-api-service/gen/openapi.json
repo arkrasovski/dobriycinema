@@ -15,7 +15,7 @@
         "parameters" : [ {
           "name" : "date",
           "in" : "query",
-          "description" : "FIltering date",
+          "description" : "Filtering date",
           "schema" : {
             "type" : "string"
           }
@@ -52,7 +52,7 @@
         "parameters" : [ {
           "name" : "date",
           "in" : "query",
-          "description" : "FIltering date",
+          "description" : "Filtering date",
           "schema" : {
             "type" : "string"
           }
@@ -95,7 +95,7 @@
         }
       },
       "Film" : {
-        "required" : [ "date", "image", "name" ],
+        "required" : [ "country", "date", "genre", "image", "name", "plot" ],
         "type" : "object",
         "properties" : {
           "name" : {
@@ -105,6 +105,18 @@
             "type" : "string"
           },
           "date" : {
+            "type" : "string"
+          },
+          "genre" : {
+            "type" : "string"
+          },
+          "plot" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "rating" : {
             "type" : "string"
           }
         }

@@ -52,11 +52,13 @@ function getRateFilm(req, res) {
   // this sends back a JSON response which is a single string
   res.json([
     {
-      name: "" + faker.name.findName(),
+      name: "" + faker.lorem.words(2),
       image: "" + faker.image.city(),
       date: "" + faker.random.number({ min: 1920, max: 2021 }),
       genre: "" + genres[faker.random.number({ min: 0, max: 10 })],
       plot: "" + faker.lorem.sentences(3),
+      country: "" + faker.address.country(),
+      rating: "" + faker.random.number({ min: 35, max: 100 }) + "%",
     },
   ]);
 }
