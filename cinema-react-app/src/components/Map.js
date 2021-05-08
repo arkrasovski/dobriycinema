@@ -1,7 +1,7 @@
 import React from "react";
 import * as Api from "typescript-fetch-api";
 // import logo from "./logo.svg";
-import map_img from "./map.png";
+import map_img from "./map.jpg";
 
 const api = new Api.DefaultApi();
 
