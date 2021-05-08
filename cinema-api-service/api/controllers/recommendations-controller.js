@@ -54,7 +54,7 @@ function getRecommendations(req, res) {
   res.json([
     {
       name: "" + faker.lorem.words(2),
-      image: "" + faker.image.city(),
+      image: "images/" + faker.random.number({ min: 1, max: 20 }) + ".png",
       date: "" + faker.random.number({ min: 1920, max: 2021 }),
       genre: "" + genres[faker.random.number({ min: 0, max: 10 })],
       plot: "" + faker.lorem.sentences(3),
@@ -63,7 +63,7 @@ function getRecommendations(req, res) {
     },
     {
       name: "" + faker.lorem.words(2),
-      image: "" + faker.image.city(),
+      image: "images/" + faker.random.number({ min: 1, max: 20 }) + ".png",
       date: "" + faker.random.number({ min: 1920, max: 2021 }),
       genre: "" + genres[faker.random.number({ min: 0, max: 10 })],
       plot: "" + faker.lorem.sentences(3),
@@ -72,7 +72,7 @@ function getRecommendations(req, res) {
     },
     {
       name: "" + faker.lorem.words(2),
-      image: "" + faker.image.city(),
+      image: "images/" + faker.random.number({ min: 1, max: 20 }) + ".png",
       date: "" + faker.random.number({ min: 1920, max: 2021 }),
       genre: "" + genres[faker.random.number({ min: 0, max: 10 })],
       plot: "" + faker.lorem.sentences(3),

@@ -19,7 +19,7 @@ class Recommendations extends React.Component {
   render() {
     return (
       <div>
-        <h3>Today`s events</h3>
+        <h3>Recommendations</h3>
         <button onClick={this.handleReload}>Reload</button>
         <table>
           {this.state.recommendations.map((film) => (

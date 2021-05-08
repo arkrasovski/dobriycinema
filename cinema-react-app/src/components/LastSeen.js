@@ -19,7 +19,7 @@ class LastSeen extends React.Component {
   render() {
     return (
       <div>
-        <h3>Today`s events</h3>
+        <h3>Last seen</h3>
         {/* <button onClick={this.handleReload}>Reload</button> */}
         <table>
           {this.state.ratefilm.map((film) => (
