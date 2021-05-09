@@ -1,6 +1,13 @@
 import React from "react";
 import * as Api from "typescript-fetch-api";
-
+import edit from "../images/edit.svg";
+import ticket from "../images/Ticket.svg";
+import strelka from "../images/strelka.svg";
+import wallet from "../images/Wallet.svg";
+import ears from "../images/ears.svg";
+import setting from "../images/Setting.svg";
+import discount from "../images/Discount.svg";
+import logout from "../images/Logout.svg";
 const api = new Api.DefaultApi();
 
 class User extends React.Component {
@@ -19,19 +26,46 @@ class User extends React.Component {
 
   render() {
     return (
-      <div >
-        <h2>
-        Today in Minsk`sgfgff cinemas</h2>
-       
-        <ol >
-          {this.state.user.map((event) => (
-            <li>
-              <h3>Title: {event.image}</h3>
-              <h4>Free sits: {event.phone}</h4>
-              <h4>Price: {event.email}</h4>
-            </li>
+      <div className = "userComponent">
+        <div class="hello">
+          {this.state.user.map((event) => (<h2>Welcome, {event.name}!</h2>
           ))}
-        </ol>
+          <span><img src={edit}></img> Edit</span>
+        </div>
+        
+        {this.state.user.map((event) => (<img src={event.image}></img>))}
+        <div className="userInfo">
+        {this.state.user.map((event) => (<div>{event.email}</div>))}
+        {this.state.user.map((event) => (<div>{event.phone}</div>))}
+        </div>
+          
+            <div className="userIcons">
+              <div>
+                <img src={ticket}></img>
+                <span>Tickets</span>
+              </div>
+              <div>
+                <img src={strelka}></img>
+                <span>History</span>
+              </div>
+              <div>
+                <img src={wallet}></img>
+                <span>Payments</span>
+              </div>
+              <div>
+                <img src={discount}></img>
+                <span>Discount</span>
+              </div>
+              <div>
+                <img src={ears}></img>
+                <span>Help</span>
+              </div>
+              <div>
+                <img src={setting}></img>
+                <span>Settings</span>
+              </div>
+            </div>
+            <span><img src={logout}></img> Logout</span>
       </div>
     );
   }

@@ -8,6 +8,7 @@ import User from "./components/User";
 import logo from "./images/logo.svg";
 import search from "./images/Search.svg";
 import user from "./images/account.svg";
+
 import twitter from "./images/twitter.svg";
 import facebook from "./images/facebook.svg";
 import vk from "./images/vk.svg";
@@ -31,7 +32,7 @@ function App() {
         <header>
           <div className="leftbar">
             <div className="logo">
-              <img src={logo}></img>
+              <a> <Link to="/"><img src={logo}></img></Link></a>
             </div>
             <ul>
               <li>
@@ -76,6 +77,7 @@ function App() {
               <NoMatch />
             </Route>
           </Switch>
+       
         </section>
 
         <footer>
