@@ -76,7 +76,38 @@ function getFilmEvents(req, res) {
       "cinemaName": '' + faker.company.companyName(),
       "minCost": ' ' + faker.random.number({ 'min': 200, 'max': 400 }),
       "date": date,
-    }
+    },
+    {
+      "id": '',
+      "name": faker.commerce.productName(),
+      "image": faker.image.imageUrl(),
+      "description": faker.lorem.paragraph(),
+      "cinemaLocation": faker.address.streetName() + ' ' + faker.random.number({ 'min': 1, 'max': 200 }),
+      "cinemaName": '' + faker.company.companyName(),
+      "minCost": ' ' + faker.random.number({ 'min': 200, 'max': 400 }),
+      "date": date,
+    },
+    {
+      "id": '',
+      "name": faker.commerce.productName(),
+      "image": faker.image.imageUrl(),
+      "description": faker.lorem.paragraph(),
+      "cinemaLocation": faker.address.streetName() + ' ' + faker.random.number({ 'min': 1, 'max': 200 }),
+      "cinemaName": '' + faker.company.companyName(),
+      "minCost": ' ' + faker.random.number({ 'min': 200, 'max': 400 }),
+      "date": date,
+    },
+    {
+      "id": '',
+      "name": faker.commerce.productName(),
+      "image": faker.image.imageUrl(),
+      "description": faker.lorem.paragraph(),
+      "cinemaLocation": faker.address.streetName() + ' ' + faker.random.number({ 'min': 1, 'max': 200 }),
+      "cinemaName": '' + faker.company.companyName(),
+      "minCost": ' ' + faker.random.number({ 'min': 200, 'max': 400 }),
+      "date": date,
+    },
+
   ]);
 
 }

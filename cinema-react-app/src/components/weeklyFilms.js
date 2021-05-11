@@ -15,100 +15,107 @@ const api = new Api.DefaultApi();
 class WeeeklyFilms extends React.Component {
   constructor(props) {
     super(props);
-
+    this.activeDay = "M";
     const id = this.props.match?.params.id || moment().format("YYYY-MM-DD");
-    console.log(id);
 
     this.state = {
       events: [],
       date: id,
     };
 
+
     this.handleReload = this.handleReload.bind(this);
+    this.changeDay = this.changeDay.bind(this);
     this.handleReload();
+  }
+  changeDay(e) {
+    if (e.target.innerHTML.toUpperCase() === this.activeDay) {
+    } else {
+      this.activeDay = e.target.innerHTML.toUpperCase();
+      this.changeActive(e.target);
+      this.handleReload();
+    }
+  }
+
+  changeActive(el) {
+    let items = Array.from(document.querySelectorAll(".day-content__button"));
+    items.forEach((e) => e.classList.remove("day-content__button_active"));
+    el.classList.add("day-content__button_active");
   }
 
   async handleReload(event) {
     const id = this.props.match?.params.id || moment().format("YYYY-MM-DD");
     const response = await api.weeklyevents({ date: id });
     this.setState({ events: response });
-
-    // const ul = Array.from(document.querySelectorAll("body #root div.App section div.day-content ul li p"));
-    // console.log(ul);
-    // ul.forEach((li) => {
-    //   li.addEventListener("click", (event) => {
-    //     setTimeout(() => {
-    //       console.log(event);
-    //       this.handleReload();
-    //       console.log('jgnfnjk')
-
-    //     }, 0);
-    //   })
-    // });
   }
 
   render() {
     return (
       <div className="day-content">
-        <h2>Let's watch a movie this week</h2>
-        <ul class="links">
-          <li>
-            <Link to="/events/monday">
-              <button onClick={this.handleReload}>Monday</button>
-            </Link>
-          </li>
-
-          <li>
-            <Link to="/events/tuesday">
-              <button onClick={this.handleReload}>Tuesday</button>
-            </Link>
-          </li>
-
-          <li>
-            <Link to="/events/wednesday">
-              <button onClick={this.handleReload}>Wednesday</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/events/thursday">
-              <button onClick={this.handleReload}>Thursday</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/events/friday">
-              <button onClick={this.handleReload}>Friday</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/events/saturday">
-              <button onClick={this.handleReload}>Saturday</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/events/sunday">
-              <button onClick={this.handleReload}>Sunday</button>
-            </Link>
-          </li>
-        </ul>
-
-        {/* <h2>Today {' ' + this.state.events.map((e) => e.date[0].toUpperCase() + e.date.slice(1, e.date.length)) +' '} let`s see
-      </h2> */}
-        <h2>{this.state.events.map((e) => e.date)}</h2>
-        <ul>
-          {this.state.events.map((event, index) => (
+        <div className="wrapper">
+          <h2 className="day-content__heading">choose the day</h2>
+          <ul class="day-content__ul">
             <li>
-              <p>{event.name}</p>
-              <img src={event.image}></img>
-              <p>{event.description}</p>
-              <p>
-                Minimal cost right now is <b>{event.minCost}</b>
-              </p>
-              <p>
-                {event.cinemaName} is situated at the {event.cinemaLocation}
-              </p>
+              <Link to="/events/monday">
+                <button className="day-content__button day-content__button_active" onClick={this.changeDay}>M</button>
+              </Link>
             </li>
-          ))}
-        </ul>
+
+            <li>
+              <Link to="/events/tuesday">
+                <button className="day-content__button" onClick={this.changeDay}>T</button>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/events/wednesday">
+                <button className="day-content__button" onClick={this.changeDay}>W</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/events/thursday">
+                <button className="day-content__button" onClick={this.changeDay}>Th</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/events/friday">
+                <button className="day-content__button" onClick={this.changeDay}>F</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/events/saturday">
+                <button className="day-content__button" onClick={this.changeDay}>Sa</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/events/sunday">
+                <button className="day-content__button" onClick={this.changeDay}>Su</button>
+              </Link>
+            </li>
+          </ul>
+          <div className="card-wrapper">
+            {this.state.events.map((event, index) => (
+              <div className="item">
+                <img src={event.image} className="item__img"></img>
+                <div className="item__wrapper">
+                  <div className="item__row">
+                    <b>Title: </b><p>{event.name}</p>
+                  </div>
+                  <div className="item__row">
+                    <b>Cost: </b><p>{event.minCost}</p>
+                  </div>
+                  <div className="item__row">
+                    <b>Cinema: </b><p>{event.cinemaName}</p>
+                  </div>
+                  <div className="item__row">
+                    <b>Location: </b><p>{event.cinemaLocation}</p>
+                  </div>
+                  <button className="item__button"><Link to="/recomendations" className="item__a"></Link>Ticket</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }

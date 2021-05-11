@@ -5,9 +5,7 @@
   box-sizing: border-box;
 }
 
-
 .App {
- 
   min-width: 1400px;
   width: 1400px;
   margin: 0 auto;
@@ -40,6 +38,10 @@ header ul li {
 }
 header ul li a {
   color: #f4f4f4;
+}
+
+header ul li a:hover {
+  text-decoration: underline;
 }
 
 div .logo {
@@ -125,7 +127,6 @@ h4 {
 /* Nikita's styles */
 /*Footer*/
 footer {
-
   font-family: Montserrat;
   font-size: 16px;
   display: flex;
@@ -145,6 +146,13 @@ footer {
 }
 .footerText img {
   margin-right: 10px;
+  opacity: 0.6;
+  transition: all linear 100ms;
+}
+
+.footerText img:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .footerSearch {
@@ -179,24 +187,30 @@ footer {
 /*Footer*/
 
 /*User component*/
-.userComponent{
- 
+.userComponent {
   padding: 94px 120px;
   color: white;
 }
-.userComponent > img {width: 205px;
-          height: 205px;
-        border-radius: 5px;
-        margin-bottom: 40px;}
-        .userComponent > span {float: right;
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-        font-family: Montserrat;}
+.userComponent > img {
+  width: 205px;
+  height: 205px;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+.userComponent > span {
+  float: right;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-family: Montserrat;
+}
 
-        .userComponent > span img {margin-right: 11px;}
+.userComponent > span img {
+  margin-right: 11px;
+}
 
-.hello {color: #F4F4F4;
+.hello {
+  color: #f4f4f4;
   font-family: Bebas Neue;
   display: flex;
   justify-content: space-between;
@@ -206,43 +220,59 @@ footer {
   margin-bottom: 40px;
   height: 40px;
 }
-.hello span {font-size: 18px;
-      font-family: Montserrat;
-      letter-spacing: normal;
-    display: flex;
-    align-items: center;}
-    .hello span img {margin-right: 10px;}
+.hello span {
+  font-size: 18px;
+  font-family: Montserrat;
+  letter-spacing: normal;
+  display: flex;
+  align-items: center;
+}
+.hello span img {
+  margin-right: 10px;
+}
 
-.userInfo {display: flex;
-    margin-bottom: 40px;}
-.userInfo > div {min-width: 266px;
-      height: 40px;
-      padding: 0 5px;
-      justify-content: center;
-      color: #F4F4F4;
-      background-color: #1F1B2E;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      font-family: Montserrat;
-      font-size: 18px;}
-      .userInfo > div:first-child {margin-right: 32px;}
+.userInfo {
+  display: flex;
+  margin-bottom: 40px;
+}
+.userInfo > div {
+  min-width: 266px;
+  height: 40px;
+  padding: 0 5px;
+  justify-content: center;
+  color: #f4f4f4;
+  background-color: #1f1b2e;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-family: Montserrat;
+  font-size: 18px;
+}
+.userInfo > div:first-child {
+  margin-right: 32px;
+}
 
-      .userIcons {display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;}
-      
-      .userIcons > div {width: 173px;
-      height: 100px;
-      color: #F4F4F4;
-      background-color: #1F1B2E;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      font-family: Montserrat;}
-      .userIcons > div img {margin-bottom: 8px;}
+.userIcons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.userIcons > div {
+  width: 173px;
+  height: 100px;
+  color: #f4f4f4;
+  background-color: #1f1b2e;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Montserrat;
+}
+.userIcons > div img {
+  margin-bottom: 8px;
+}
 /*User component end */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -274,3 +304,5 @@ footer {
     transform: rotate(360deg);
   }
 }
+
+@import url("css/Weekly.css");
