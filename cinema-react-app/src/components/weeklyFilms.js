@@ -96,7 +96,8 @@ class WeeeklyFilms extends React.Component {
           <div className="card-wrapper">
             {this.state.events.map((event, index) => (
               <div className="item">
-                <img src={event.image} className="item__img"></img>
+                {/* <img src={event.image} className="item__img"></img> */}
+                <img src={`https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/morning/${((event.minCost) % 20 + 1 >= 10) ? event.minCost % 20 + 1 : "0" + (event.minCost % 20 + 1)}.jpg`} className="item__img"></img>
                 <div className="item__wrapper">
                   <div className="item__row">
                     <b>Title: </b><p>{event.name}</p>
