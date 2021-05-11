@@ -1,0 +1,170 @@
+* {
+  color: wheat;
+}
+
+.wrapper {
+  padding: 0 223px 0 120px;
+}
+
+.day-content__ul {
+  width: 690px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 0;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+.day-content__ul .day-content__button {
+  width: 71px;
+  height: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0px;
+  outline: none;
+  background: #1f1b2e;
+  border-radius: 10px;
+  color: #f4f4f4;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.0125em;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.day-content__ul .day-content__button:hover {
+  color: #ea0042;
+  cursor: pointer;
+}
+
+.day-content__ul .day-content__button_active {
+  background: #383154;
+}
+
+.day-content__heading {
+  font-family: "Bebas Neue";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: 0.15em;
+  text-align: left;
+  color: #f4f4f4;
+  margin-top: 67px;
+  margin-bottom: 40px;
+}
+
+.item {
+  width: 490px;
+  background: #1f1b2e;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.item:nth-of-type(2n + 1) {
+  margin-right: 75px;
+}
+
+.item:nth-of-type(2),
+.item:nth-of-type(1) {
+  margin-bottom: 30px;
+}
+
+.item__img {
+  width: 172px;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.item__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 18px 30px 20px 40px;
+}
+
+.item__row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 11px;
+}
+
+.item__row b {
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.0125em;
+  text-align: left;
+  color: #f4f4f4;
+  min-width: 90px;
+  margin-right: 20px;
+}
+
+.item__row p {
+  margin: 0;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
+  letter-spacing: -0.0125em;
+  text-align: left;
+  color: #f4f4f4;
+}
+
+.item__button {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
+  letter-spacing: -0.0125em;
+  text-align: left;
+  color: #f4f4f4;
+  width: 76px;
+  min-height: 33px;
+  background: #ea0042;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: all linear 200ms;
+  position: relative;
+}
+
+.item__button:hover {
+  cursor: pointer;
+  background: #1f1b2e;
+  border: 2px solid #ea0042;
+}
+.item__a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
