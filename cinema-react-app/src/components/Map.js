@@ -1,7 +1,6 @@
 import React from "react";
 import * as Api from "typescript-fetch-api";
-// import logo from "./logo.svg";
-import map_img from "./map.png";
+import map_img from "./map.jpg";
 
 const api = new Api.DefaultApi();
 
@@ -10,7 +9,7 @@ class Map extends React.Component {
     super(props);
     this.state = { map: [] };
 
-    this.handleReload = this.handleReload.bind(this);//это вообще лишнее , так влад сказал
+    this.handleReload = this.handleReload.bind(this); //это вообще лишнее , так влад сказал
     this.handleReload();
   }
 
@@ -22,8 +21,7 @@ class Map extends React.Component {
   render() {
     return (
       <div class="map-component">
-        <h2>
-        Today in Minsk`s cinemas</h2>
+        <h2>Today in Minsk`s cinemas</h2>
         <img src={map_img} class="map" alt="map" />
         <ol class="map-table">
           {this.state.map.map((event) => (
