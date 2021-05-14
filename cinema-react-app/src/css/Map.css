@@ -1,0 +1,111 @@
+
+
+*{
+    box-sizing: border-box;
+}
+/*
+body {
+    background: rgba(16, 14, 25, 1);
+} */
+
+.map-wrapper {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 1440px;
+    padding: 60px 120px 100px 120px;
+}
+
+.map{
+    width: 515px;
+}
+
+.map-title {
+    /* font-family: Bebas Neue; */
+    font-family: 'Bebas Neue', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 58px;
+    letter-spacing: 0.15em;
+    color: #F4F4F4;
+}
+
+.map-image {
+    margin-top: 12px;
+    width: 514px;
+    height: 514px;
+    border-radius: 12px;
+}
+
+.map-items{
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 590px;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.map-list-item{
+    display: block;
+    position: relative;
+    width: 270px;
+    height: 180px;
+    border-radius: 10px;
+    background-color: rgba(31, 27, 46, 1);
+    font-family: Montserrat;
+    /* margin: 25px; */
+}
+
+.number{
+    position: absolute;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(244, 244, 244, 1);
+    left: 14px;
+    top: 2px;
+}
+
+table{
+    position: relative;
+    top: 38px;
+    left: 56px;
+}
+
+td{
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.0125em;
+    text-align: left;
+    color: rgba(244, 244, 244, 1);
+
+}
+
+td::first-letter{
+    text-transform: capitalize;
+}
+
+.red{
+    width: 68px;
+    color: rgba(234, 0, 66, 1);
+}
+
+.price{
+    position: absolute;
+    top: 130px;
+    left: 170px;
+
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 37px;
+    letter-spacing: -0.0125em;
+    text-align: left;
+    color: rgba(234, 0, 66, 1);
+}

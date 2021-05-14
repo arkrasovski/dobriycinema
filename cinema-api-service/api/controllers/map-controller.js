@@ -49,39 +49,45 @@ function getMap(req, res) {
   res.json([
     {
       date: date,
-      title: "" + faker.lorem.words(3),
+      title: "" + faker.lorem.words(1),
       price: "" + faker.random.number({ min: 8, max: 12 }),
       sits: "" + faker.random.number({ min: 0, max: 100 }),
+      time: "" + faker.random.number({ min: 12, max: 21 }),
     },
     {
       date: date,
-      title: "" + faker.lorem.words(3),
+      title: "" + faker.lorem.words(1),
       price: "" + faker.random.number({ min: 8, max: 12 }),
       sits: "" + faker.random.number({ min: 0, max: 100 }),
+      time: "" + faker.random.number({ min: 12, max: 21 }),
     },
     {
       date: date,
-      title: "" + faker.lorem.words(3),
+      title: "" + faker.lorem.words(1),
       price: "" + faker.random.number({ min: 8, max: 12 }),
       sits: "" + faker.random.number({ min: 0, max: 100 }),
+      time: "" + faker.random.number({ min: 12, max: 21 }),
     },
     {
       date: date,
-      title: "" + faker.lorem.words(3),
+      title: "" + faker.lorem.words(1),
       price: "" + faker.random.number({ min: 8, max: 12 }),
       sits: "" + faker.random.number({ min: 0, max: 100 }),
+      time: "" + faker.random.number({ min: 12, max: 21 }),
     },
     {
       date: date,
-      title: "" + faker.lorem.words(3),
+      title: "" + faker.lorem.words(1),
       price: "" + faker.random.number({ min: 8, max: 12 }),
       sits: "" + faker.random.number({ min: 0, max: 100 }),
+      time: "" + faker.random.number({ min: 12, max: 21 }),
     },
     {
       date: date,
-      title: "" + faker.lorem.words(3),
+      title: "" + faker.lorem.words(1),
       price: "" + faker.random.number({ min: 8, max: 12 }),
       sits: "" + faker.random.number({ min: 0, max: 100 }),
+      time: "" + faker.random.number({ min: 12, max: 21 }),
     },
   ]);
 }
