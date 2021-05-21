@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+    <cinema address="priticskogo 30" name="Agrora">
+    <film name="Cigengers" rating="150%" duration="180" studio="webintro"  >
+        <session time="13:00" price="50" seats="24"/>
+    </film>
+    <film name="Miserable life" rating="80%" duration="105" studio="LyatskiyCinema"  >
+        <session time="17:56" price="10" seats="222"/>
+    </film>
+    <film name="Examination" rating="200%" duration="40" studio="LyatskiyCinema"  >
+        <session time="0:10" price="10" seats="4"/>
+    </film>
+    <film name="Igor`s biography" rating="90%" duration="90" studio="Cigancinema_corp"  >
+        <session time="11:00" price="25" seats="24"/>
+    </film>
+    <film name="Ohlamoni raisined" rating="50%" duration="330" studio="nedesign studio for designers"  >
+        <session time="21:00" price="0" seats="8"/>
+    </film>
+    </cinema>
